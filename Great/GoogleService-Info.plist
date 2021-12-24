@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>670848742220-okip0k8qu5op30ucdjalg7ppcv48keb1.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.670848742220-okip0k8qu5op30ucdjalg7ppcv48keb1</string>
+	<key>API_KEY</key>
+	<string>AIzaSyBOHonmNoxwnhlY5Z-mTbWt2MrrSM_YXmY</string>
+	<key>GCM_SENDER_ID</key>
+	<string>670848742220</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.Juice.Great</string>
+	<key>PROJECT_ID</key>
+	<string>eatsy-66242</string>
+	<key>STORAGE_BUCKET</key>
+	<string>eatsy-66242.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:670848742220:ios:407189f90dbd051c9715e9</string>
+</dict>
+</plist>
