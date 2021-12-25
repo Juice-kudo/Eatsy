@@ -1,75 +1,60 @@
 //
-//  ContentView.swift
+//  LoginView.swift
 //  Great
 //
-//  Created by Lee Juwon on 2021/12/23.
+//  Created by Lee Juwon on 2021/12/24.
 //
-// 저장해야 할 정보 - 로그인정보, 해당 계정 별점 정보, 유저들 모두의 별점 정보 통계
-
 import SwiftUI
 import CryptoKit
 import AuthenticationServices
 import FirebaseAuth
 
-
-struct ContentView: View {
+struct LoginView: View {
+    
+    @EnvironmentObject var userAuth: UserAuth
+    
     var body: some View {
         NavigationView{
             VStack{
-                Text("Easy 하게 먹자")
-                    .font(.custom("AmericanTypewriter", size:20))
-                    .foregroundColor(Color.orange)
-                    
-                HStack{
-                    Text("E")
-                        .font(.custom("AmericanTypewriter", size:40))
-                        .foregroundColor(Color.purple)
-                        .multilineTextAlignment(.center)
-                    Text("a")
-                        .font(.custom("AmericanTypewriter", size:40))
-                        .foregroundColor(Color.purple)
-                        .multilineTextAlignment(.center)
-                    Text("t")
-                        .font(.custom("PT Sans", size:40))
-                        .foregroundColor(Color.black)
-                        .multilineTextAlignment(.center)
-                    Text("s")
-                        .font(.custom("AmericanTypewriter", size:40))
-                        .foregroundColor(Color.purple)
-                        .multilineTextAlignment(.center)
-                    Text("y")
-                        .font(.custom("AmericanTypewriter", size:40))
-                        .foregroundColor(Color.purple)
-                        .multilineTextAlignment(.center)
-                }
-                .offset(y:30)
+                Spacer()
+               Text("Easy 하게 먹자")
+                   .font(.custom("AmericanTypewriter", size:20))
+                   .foregroundColor(Color.orange)
+                   
+               HStack{
+                   Text("E")
+                       .font(.custom("AmericanTypewriter", size:40))
+                       .foregroundColor(Color.purple)
+                       .multilineTextAlignment(.center)
+                   Text("a")
+                       .font(.custom("AmericanTypewriter", size:40))
+                       .foregroundColor(Color.purple)
+                       .multilineTextAlignment(.center)
+                   Text("t")
+                       .font(.custom("PT Sans", size:40))
+                       .foregroundColor(Color.black)
+                       .multilineTextAlignment(.center)
+                   Text("s")
+                       .font(.custom("AmericanTypewriter", size:40))
+                       .foregroundColor(Color.purple)
+                       .multilineTextAlignment(.center)
+                   Text("y")
+                       .font(.custom("AmericanTypewriter", size:40))
+                       .foregroundColor(Color.purple)
+                       .multilineTextAlignment(.center)
+               }
+               .offset(y:30)
+               
+               
+               
+               
+               
+                Spacer()
                 
-                
-                
-                NavigationLink(destination: MainView()){
-                    Text("Login")
-                        .font(.custom("AmericanTypewriter", size:30))
-                        .foregroundColor(Color.black)
-                        
-                        
-                    }
-                .offset(y:50)
-                
-                ToLoginView()
-                
-                
-                
+               ToLoginView()
                 
             }
-            
         }
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-            .preferredColorScheme(.light)
     }
 }
 
@@ -122,6 +107,14 @@ struct ToLoginView: View {
     
     var body: some View {
         
+        NavigationLink(destination: MainView()){
+            Text("비회원 시작")
+                .font(.custom("AmericanTypewriter", size:25))
+                .foregroundColor(Color.purple)
+                
+                
+            }
+        
         SignInWithAppleButton(
             onRequest: { request in
                 let nonce = randomNonceString()
@@ -169,13 +162,21 @@ struct ToLoginView: View {
                  }
             }
         )
-            .frame(width: 280, height: 45, alignment: .center)
-            .padding(.init(top: 400, leading: 50, bottom: 20, trailing: 50))
+            .frame(width: 200, height: 45, alignment: .center)
+            .padding(.init(top: 200, leading: 50, bottom: 20, trailing: 50))
         
     }
 }
+
     
     
     
    
+
+
+struct ContentView_Preview: PreviewProvider {
+    static var previews: some View {
+        LoginView()
+    }
+}
 
