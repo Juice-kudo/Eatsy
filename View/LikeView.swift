@@ -12,7 +12,7 @@ struct LikeView: View{
     
     var body: some View{
         VStack{
-            Text("LikeView")
+            Text("평가하러 온 화면")
             Spacer()
         }
     }

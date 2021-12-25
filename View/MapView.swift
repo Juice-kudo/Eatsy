@@ -15,9 +15,9 @@ struct MapView: View{
             span: MKCoordinateSpan(latitudeDelta: MapDefaults.zoom, longitudeDelta: MapDefaults.zoom))
             
     private enum MapDefaults {
-            static let latitude = 45.872
-            static let longitude = -1.248
-            static let zoom = 0.5
+        static let latitude = 37.564
+        static let longitude = 127.0
+        static let zoom = 0.1
         }
     
     var body: some View{

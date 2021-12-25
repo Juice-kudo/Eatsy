@@ -14,7 +14,7 @@ struct LoginView: View {
     @EnvironmentObject var userAuth: UserAuth
     
     var body: some View {
-        NavigationView{
+        
             VStack{
                 Spacer()
                Text("Easy 하게 먹자")
@@ -54,7 +54,7 @@ struct LoginView: View {
                ToLoginView()
                 
             }
-        }
+        
     }
 }
 
