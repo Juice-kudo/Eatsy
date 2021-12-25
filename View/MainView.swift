@@ -11,9 +11,16 @@ import SwiftUI
 struct MainView: View{
     @State var text : String = ""
     var body: some View{
-        VStack{
+        VStack(spacing:0){
             TopView(text: self.$text)
+            
             PrepsView()
+            
+            //선택시 디테일 뷰 (오버레이해서 네비게이션 부르기?)
+            
+            DetailView()
+                .border(Color.purple, width: 1)
+            
             Spacer()
             
         }
@@ -109,11 +116,12 @@ struct TopView: View{
     }
 }
 
+//추천 알고리즘 후 나온 데이터를 토대로 추천 목록
 struct PrepsView: View{
     var prepData = preps
     var body: some View{
         ScrollView(.vertical, showsIndicators: false){
-            VStack{
+            VStack(spacing:0){
                 ForEach(prepData){
                     prep in PrepView(prep: prep)
                     
@@ -121,6 +129,11 @@ struct PrepsView: View{
             }
         }
     }
+    
+    
+        
+        
+    
     
     struct PrepView: View{
         let prep : Prep
@@ -131,24 +144,27 @@ struct PrepsView: View{
                         .frame(width: 100, height: 100)
                     
                     VStack(alignment:.leading, spacing: 5.0){
-                        Text("\(prep.name)  \(prep.category)")
-                        
+                        HStack{
+                            Text(prep.name)
+                            Spacer()
+                            Text(prep.category)
+                            
+                        }
                         Text("메뉴 : \(prep.mainmenu)")
                         
-                        Text("대충 이런 느낌 스크롤바")
+                        Text("대충 이런 느낌 틀")
                     }
-                    .font(.system(size:15))
+                    .foregroundColor(Color.gray)
+                    .font(.system(size:20))
                     .frame(width: 200, height: 100, alignment: .leading)
-                    
                     Spacer()
-                    
                 }
             }
-            .frame(width:300, height:100)
-            
+            .frame(height:100)
         }
     }
 }
+   
 
 struct Prep : Identifiable {
     let id = UUID()
@@ -174,6 +190,25 @@ let preps = [
     Prep(name: "홍창반점", category: "중식", mainmenu: "짜장면")
     
 ]
+
+struct DetailView: View{
+    var body: some View{
+        VStack{
+            Spacer()
+            
+            HStack{
+                Spacer()
+                
+                Text("Detail")
+                Spacer()
+                
+            }
+            
+        }
+        .frame(height:150)
+    }
+}
+
 
 //PreView
 struct MainView_Previews: PreviewProvider {
