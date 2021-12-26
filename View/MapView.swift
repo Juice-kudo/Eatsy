@@ -22,12 +22,9 @@ struct MapView: View{
     
     var body: some View{
         VStack{
-            Text("lat: \(region.center.latitude), long: \(region.center.longitude). Zoom: \(region.span.latitudeDelta)")
-                        .font(.caption)
-                        .padding()
-                        Map(coordinateRegion: $region,
-                            interactionModes: .all,
-                            showsUserLocation: true)
+            Map(coordinateRegion: $region,
+                interactionModes: .all,
+                showsUserLocation: true)
         }
     }
 }

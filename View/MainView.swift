@@ -13,17 +13,16 @@ struct MainView: View{
     var body: some View{
         VStack(spacing:0){
             TopView(text: self.$text)
-            
-            PrepsView()
-            
-            //선택시 디테일 뷰 (오버레이해서 네비게이션 부르기?)
-            
-            DetailView()
+                .frame(height: 70)
                 .border(Color.purple, width: 1)
-            
+            PrepsView()
+            //선택시 디테일 뷰 (오버레이해서 네비게이션 부르기?)
+            BottomView()
+                .frame(height: 70)
+                .border(Color.purple, width: 1)
             Spacer()
-            
         }
+        .hiddenNavigationBarStyle()
     }
 }
 
@@ -32,11 +31,7 @@ struct TopView: View{
     @Binding var text : String
     @State var editText : Bool = false
     var body: some View{
-        HStack{
-            NavigationLink(destination: LikeView()){
-                ToStarView()
-                    .padding(.leading)
-            }
+        HStack(spacing:0){
             TextField("음식점 찾기", text : self.$text)
                 .padding(10)
                 .background(Color.white)
@@ -68,51 +63,48 @@ struct TopView: View{
             }
             NavigationLink(destination: MyInfoView()){
                 ToMyInfo()
-                    .padding(.trailing)
             }
         }
-        .border(Color.purple, width: 1)
+        .padding(.leading)
     }
-    
-    //별점 가기 버튼
-    struct ToStarView: View {
-        var body: some View{
-            Image(systemName: "heart")
-                .resizable()
-                .foregroundColor(Color.purple)
-                .scaledToFit()
-                .padding(.top, 15)
-                
-                .padding(.bottom, 15)
-                .frame(width: 40, height: 60, alignment: .center)
-        }
-    }
-    
-    //현재위치 설정 버튼
-    struct ToMap: View {
-        var body: some View{
+}
+
+//현재위치 설정 버튼
+struct ToMap: View {
+    var body: some View{
+        VStack{
             Image(systemName: "map")
                 .resizable()
                 .foregroundColor(Color.purple)
                 .scaledToFit()
-                .padding(.top, 15)
-        
-                .padding(.bottom, 12)
-                .frame(width: 40, height: 60, alignment: .center)
+                .frame(width: 30, height: 30)
+            Text("지도")
+                .fontWeight(.bold)
+                .foregroundColor(Color.purple)
+            
         }
+        
+        .frame(width: 60, height: 60)
+        
     }
+}
 
-    //내정보 열기 버튼
-    struct ToMyInfo: View{
-        var body: some View{
+//내정보 열기 버튼
+struct ToMyInfo: View{
+    var body: some View{
+        VStack{
             Image(systemName: "person")
                 .resizable()
                 .foregroundColor(Color.purple)
                 .scaledToFit()
-                .padding(.top, 15)
-                .padding(.bottom, 10)
-                .frame(width:40, height:60, alignment: .center)
-                }
+                .frame(width:30, height:30)
+                
+            Text("내정보")
+            .fontWeight(.bold)
+            .foregroundColor(Color.purple)
+        }
+        
+        .frame(width: 60, height: 60)
     }
 }
 
@@ -124,34 +116,26 @@ struct PrepsView: View{
             VStack(spacing:0){
                 ForEach(prepData){
                     prep in PrepView(prep: prep)
-                    
                 }
             }
         }
     }
+}
     
-    
-        
-        
-    
-    
-    struct PrepView: View{
+struct PrepView: View{
         let prep : Prep
         var body : some View{
             VStack{
                 HStack{
                     Image(systemName: "heart")
                         .frame(width: 100, height: 100)
-                    
                     VStack(alignment:.leading, spacing: 5.0){
                         HStack{
                             Text(prep.name)
                             Spacer()
                             Text(prep.category)
-                            
                         }
                         Text("메뉴 : \(prep.mainmenu)")
-                        
                         Text("대충 이런 느낌 틀")
                     }
                     .foregroundColor(Color.gray)
@@ -163,8 +147,6 @@ struct PrepsView: View{
             .frame(height:100)
         }
     }
-}
-   
 
 struct Prep : Identifiable {
     let id = UUID()
@@ -191,24 +173,42 @@ let preps = [
     
 ]
 
-struct DetailView: View{
+// 별점 가기 버튼
+struct ToStarView: View {
     var body: some View{
         VStack{
-            Spacer()
-            
-            HStack{
-                Spacer()
+            Image(systemName: "star")
+                .resizable()
+                .foregroundColor(Color.purple)
+                .scaledToFit()
+                .frame(width:30, height:30)
                 
-                Text("Detail")
-                Spacer()
-                
-            }
-            
+            Text("별점")
+            .fontWeight(.bold)
+            .foregroundColor(Color.purple)
         }
-        .frame(height:150)
+        
+        .frame(width: 60, height: 60)
     }
 }
 
+// 하단 메뉴, 버튼
+struct BottomView: View{
+    var body: some View{
+        VStack(spacing:0){
+            HStack(spacing:0){
+                NavigationLink(destination: LikeView()){
+                    ToStarView()
+                        .frame(width: 60, height: 60)
+                }
+                Spacer()
+                Text("Detail")
+                Spacer()
+            }
+        }
+        .frame(height:60)
+    }
+}
 
 //PreView
 struct MainView_Previews: PreviewProvider {

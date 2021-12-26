@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9939325A2777CF7F0056BEBF /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993932592777CF7F0056BEBF /* LoginView.swift */; };
+		9939325E2778553E0056BEBF /* ViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9939325D2778553E0056BEBF /* ViewModifiers.swift */; };
 		9963DB152774875A005DB34A /* GreatApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9963DB142774875A005DB34A /* GreatApp.swift */; };
 		9963DB192774875C005DB34A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9963DB182774875C005DB34A /* Assets.xcassets */; };
 		9963DB1C2774875C005DB34A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9963DB1B2774875C005DB34A /* Preview Assets.xcassets */; };
@@ -46,6 +47,7 @@
 
 /* Begin PBXFileReference section */
 		993932592777CF7F0056BEBF /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		9939325D2778553E0056BEBF /* ViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModifiers.swift; sourceTree = "<group>"; };
 		9963DB112774875A005DB34A /* Great.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Great.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9963DB142774875A005DB34A /* GreatApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GreatApp.swift; sourceTree = "<group>"; };
 		9963DB182774875C005DB34A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				99C5CBD927758CDE007EC97D /* LikeView.swift */,
 				99C5CBDB27758D04007EC97D /* MapView.swift */,
 				993932592777CF7F0056BEBF /* LoginView.swift */,
+				9939325D2778553E0056BEBF /* ViewModifiers.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 				99C5CBD627757FAD007EC97D /* MyInfoView.swift in Sources */,
 				99C5CD1C27775D89007EC97D /* ContentView.swift in Sources */,
 				9939325A2777CF7F0056BEBF /* LoginView.swift in Sources */,
+				9939325E2778553E0056BEBF /* ViewModifiers.swift in Sources */,
 				99C5CBDC27758D04007EC97D /* MapView.swift in Sources */,
 				99C5CBD427751000007EC97D /* MainView.swift in Sources */,
 				99C5CBDA27758CDE007EC97D /* LikeView.swift in Sources */,
