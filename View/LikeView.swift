@@ -9,12 +9,22 @@ import Foundation
 import SwiftUI
 
 struct LikeView: View{
-    
+    @State var text : String = ""
     var body: some View{
-        VStack{
-            Text("평가하러 온 화면")
-            Spacer()
+        ZStack{
+            VStack(spacing:0){
+                TopView(text: self.$text)
+                    .frame(height: 70)
+                    .border(Color.purple, width: 1)
+                PrepsView()
+                //선택시 디테일 뷰 (오버레이해서 네비게이션 부르기?)
+                BottomView()
+                    .frame(height: 70)
+                    .border(Color.purple, width: 1)
+                Spacer()
+            }
         }
+        .hiddenNavigationBarStyle()
     }
 }
 struct LikeView_Previews: PreviewProvider {

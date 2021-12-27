@@ -11,16 +11,19 @@ import SwiftUI
 struct MainView: View{
     @State var text : String = ""
     var body: some View{
-        VStack(spacing:0){
-            TopView(text: self.$text)
-                .frame(height: 70)
-                .border(Color.purple, width: 1)
-            PrepsView()
-            //선택시 디테일 뷰 (오버레이해서 네비게이션 부르기?)
-            BottomView()
-                .frame(height: 70)
-                .border(Color.purple, width: 1)
-            Spacer()
+        ZStack{
+            
+            VStack(spacing:0){
+                TopView(text: self.$text)
+                    .frame(height: 70)
+                    .border(Color.purple, width: 1)
+                PrepsView()
+                //선택시 디테일 뷰 (오버레이해서 네비게이션 부르기?)
+                BottomView()
+                    .frame(height: 70)
+                    .border(Color.purple, width: 1)
+                Spacer()
+            }
         }
         .hiddenNavigationBarStyle()
     }
@@ -59,18 +62,16 @@ struct TopView: View{
                     self.editText = true
                 }
             NavigationLink(destination: MapView()){
-                ToMap()
+                ToMapView()
             }
-            NavigationLink(destination: MyInfoView()){
-                ToMyInfo()
-            }
+            
         }
         .padding(.leading)
     }
 }
 
 //현재위치 설정 버튼
-struct ToMap: View {
+struct ToMapView: View {
     var body: some View{
         VStack{
             Image(systemName: "map")
@@ -81,16 +82,13 @@ struct ToMap: View {
             Text("지도")
                 .fontWeight(.bold)
                 .foregroundColor(Color.purple)
-            
         }
-        
         .frame(width: 60, height: 60)
-        
     }
 }
 
 //내정보 열기 버튼
-struct ToMyInfo: View{
+struct ToMyInfoView: View{
     var body: some View{
         VStack{
             Image(systemName: "person")
@@ -98,7 +96,6 @@ struct ToMyInfo: View{
                 .foregroundColor(Color.purple)
                 .scaledToFit()
                 .frame(width:30, height:30)
-                
             Text("내정보")
             .fontWeight(.bold)
             .foregroundColor(Color.purple)
@@ -135,7 +132,7 @@ struct PrepView: View{
                             Spacer()
                             Text(prep.category)
                         }
-                        Text("메뉴 : \(prep.mainmenu)")
+                        Text("대표메뉴 \(prep.mainmenu)")
                         Text("대충 이런 느낌 틀")
                     }
                     .foregroundColor(Color.gray)
@@ -155,6 +152,7 @@ struct Prep : Identifiable {
     let mainmenu : String
 }
 
+// 예시. 원래 지도 음식점 목록이랑 같이 받아와야
 let preps = [
     
     Prep(name: "신전떡볶이", category: "분식", mainmenu: "매운떡볶이"),
@@ -192,19 +190,85 @@ struct ToStarView: View {
     }
 }
 
+struct ToMainView: View {
+    var body: some View{
+        VStack{
+            Image(systemName: "house")
+                .resizable()
+                .foregroundColor(Color.purple)
+                .scaledToFit()
+                .frame(width:30, height:30)
+                
+            Text("메인")
+            .fontWeight(.bold)
+            .foregroundColor(Color.purple)
+        }
+        .frame(width: 60, height: 60)
+    }
+}
+
+struct ToFeedView: View {
+    var body: some View{
+        VStack{
+            Image(systemName: "person.2")
+                .resizable()
+                .foregroundColor(Color.purple)
+                .scaledToFit()
+                .frame(width:30, height:30)
+                
+            Text("피드")
+            .fontWeight(.bold)
+            .foregroundColor(Color.purple)
+        }
+        .frame(width: 60, height: 60)
+    }
+}
+
+struct ToSearchView: View {
+    var body: some View{
+        VStack{
+            Image(systemName: "magnifyingglass")
+                .resizable()
+                .foregroundColor(Color.purple)
+                .scaledToFit()
+                .frame(width:30, height:30)
+                
+            Text("탐색")
+            .fontWeight(.bold)
+            .foregroundColor(Color.purple)
+        }
+        .frame(width: 60, height: 60)
+    }
+}
+
 // 하단 메뉴, 버튼
+
 struct BottomView: View{
     var body: some View{
         VStack(spacing:0){
             HStack(spacing:0){
+                Spacer()
+                NavigationLink(destination: MainView()){
+                    ToMainView()
+                        
+                }
                 NavigationLink(destination: LikeView()){
                     ToStarView()
-                        .frame(width: 60, height: 60)
+                        
+                }
+                NavigationLink(destination: FeedView()){
+                    ToFeedView()
+                        
+                }
+                NavigationLink(destination: SearchView()){
+                    ToSearchView()
+                }
+                NavigationLink(destination: MyInfoView()){
+                    ToMyInfoView()
                 }
                 Spacer()
-                Text("Detail")
-                Spacer()
             }
+            
         }
         .frame(height:60)
     }
