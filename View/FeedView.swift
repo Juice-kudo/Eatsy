@@ -5,17 +5,14 @@
 //  Created by Lee Juwon on 2021/12/24.
 //
 import SwiftUI
-struct ContentView: View {
-    
-    let userInfo=UserDefaults.standard
+struct FeedView: View {
     var body: some View{
-        
-        LoginView()
+        Text("Feed")
     }
 }
-struct ContentView_Preview: PreviewProvider {
+struct FeedView_Preview: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        FeedView()
     }
 }
 

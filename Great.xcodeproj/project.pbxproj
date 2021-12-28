@@ -103,6 +103,7 @@
 		9963DB082774875A005DB34A = {
 			isa = PBXGroup;
 			children = (
+				9999E7EB277A06BA00B1709C /* Location */,
 				99C5CD1A277736F2007EC97D /* View */,
 				99C5CD19277736D7007EC97D /* Login */,
 				9963DB132774875A005DB34A /* Great */,
@@ -157,6 +158,13 @@
 				9963DB312774875C005DB34A /* GreatUITestsLaunchTests.swift */,
 			);
 			path = GreatUITests;
+			sourceTree = "<group>";
+		};
+		9999E7EB277A06BA00B1709C /* Location */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Location;
 			sourceTree = "<group>";
 		};
 		99C5CD19277736D7007EC97D /* Login */ = {
@@ -498,6 +506,7 @@
 				DEVELOPMENT_TEAM = R86DRFH37M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "현재 위치 허용";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -530,6 +539,7 @@
 				DEVELOPMENT_TEAM = R86DRFH37M;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "현재 위치 허용";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -4,6 +4,7 @@
 //
 //  Created by Lee Juwon on 2021/12/24.
 //
+// 하단 뷰가 모두 존재하니까, 하단 뷰 없는 화면 빼고는 다 네비게이션 뷰를 하단뷰 위쪽까지만 해서 해볼가요?
 
 import Foundation
 import SwiftUI
@@ -17,8 +18,7 @@ struct MainView: View{
                 TopView(text: self.$text)
                     .frame(height: 70)
                     .border(Color.purple, width: 1)
-                PrepsView()
-                //선택시 디테일 뷰 (오버레이해서 네비게이션 부르기?)
+                    PrepsView()
                 BottomView()
                     .frame(height: 70)
                     .border(Color.purple, width: 1)
@@ -35,6 +35,7 @@ struct TopView: View{
     @State var editText : Bool = false
     var body: some View{
         HStack(spacing:0){
+            WhereAmI()
             TextField("음식점 찾기", text : self.$text)
                 .padding(10)
                 .background(Color.white)
@@ -69,10 +70,24 @@ struct TopView: View{
         .padding(.leading)
     }
 }
-
+struct WhereAmI: View {
+    var body: some View {
+        VStack{
+            Text("현재 위치")
+                .font(.custom("AmericanTypewriter", size:25))
+                .fontWeight(.bold)
+                .foregroundColor(Color.purple)
+            Text("서울시 강남구")
+                .font(.custom("AmericanTypewriter", size:20))
+                .fontWeight(.bold)
+                .foregroundColor(Color.purple)
+        }
+        
+    }
+}
 //현재위치 설정 버튼
 struct ToMapView: View {
-    var body: some View{
+    var body: some View {
         VStack{
             Image(systemName: "map")
                 .resizable()
@@ -246,7 +261,7 @@ struct ToSearchView: View {
 struct BottomView: View{
     var body: some View{
         VStack(spacing:0){
-            HStack(spacing:0){
+            HStack(spacing:10){
                 Spacer()
                 NavigationLink(destination: MainView()){
                     ToMainView()
@@ -268,7 +283,6 @@ struct BottomView: View{
                 }
                 Spacer()
             }
-            
         }
         .frame(height:60)
     }
